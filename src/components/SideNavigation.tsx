@@ -76,7 +76,7 @@ function SideNavigation() {
                   </NavigationMenuItem>
                   <NavigationMenuItem
                      className={"px-3"}
-                     onClick={() => setCollapsed(true)}
+                     onClick={() => setExtraNavbarOpen("closed")}
                   >
                      <Link href={"/fiscal-calendar"} legacyBehavior passHref>
                         <NavigationMenuLink
@@ -186,7 +186,10 @@ function SideNavigation() {
                         type={"filled"}
                         className={collapsed ? "" : "w-full"}
                         onClick={() => setExtraNavbarOpen("setup")}
-                        selected={extraNavbarOpen === "setup"}
+                        selected={
+                           extraNavbarOpen === "setup" ||
+                           path === "/fiscal-calendar"
+                        }
                      >
                         {!collapsed && "Setup"}
                      </NavigationMenuLink>
