@@ -76,7 +76,7 @@ function SideNavigation() {
                   </NavigationMenuItem>
                   <NavigationMenuItem
                      className={"px-3"}
-                     onClick={() => setCollapsed(false)}
+                     onClick={() => setCollapsed(true)}
                   >
                      <Link href={"/fiscal-calendar"} legacyBehavior passHref>
                         <NavigationMenuLink
@@ -167,6 +167,7 @@ function SideNavigation() {
                   <NavigationMenuItem className={"px-3"}>
                      <Link href={"/"} legacyBehavior>
                         <NavigationMenuLink
+                           onClick={() => setExtraNavbarOpen("closed")}
                            iconLeading={<House size={16} weight={"fill"} />}
                            type={"filled"}
                            className={collapsed ? "" : "w-full"}
@@ -193,6 +194,7 @@ function SideNavigation() {
                   <NavigationMenuItem className={"px-3"}>
                      <Link legacyBehavior href={"/legal-entity"}>
                         <NavigationMenuLink
+                           onClick={() => setExtraNavbarOpen("closed")}
                            iconLeading={<Buildings size={16} weight={"fill"} />}
                            type={"filled"}
                            className={collapsed ? "" : "w-full"}
