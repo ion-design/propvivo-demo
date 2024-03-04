@@ -170,7 +170,7 @@ function SideNavigation() {
                            iconLeading={<House size={16} weight={"fill"} />}
                            type={"filled"}
                            className={collapsed ? "" : "w-full"}
-                           seleceted={path === "/"}
+                           selected={path === "/"}
                         >
                            {!collapsed && "Dashboard"}
                         </NavigationMenuLink>
@@ -183,7 +183,7 @@ function SideNavigation() {
                            <SlidersHorizontal size={16} weight={"fill"} />
                         }
                         type={"filled"}
-                        className={!collapsed && "w-full"}
+                        className={collapsed ? "" : "w-full"}
                         onClick={() => setExtraNavbarOpen("setup")}
                         selected={extraNavbarOpen === "setup"}
                      >
@@ -195,7 +195,7 @@ function SideNavigation() {
                         <NavigationMenuLink
                            iconLeading={<Buildings size={16} weight={"fill"} />}
                            type={"filled"}
-                           className={!collapsed && "w-full"}
+                           className={collapsed ? "" : "w-full"}
                            selected={path === "/legal-entity"}
                         >
                            {!collapsed && "Legal Entity"}
@@ -206,7 +206,7 @@ function SideNavigation() {
                      <NavigationMenuLink
                         iconLeading={<Receipt size={16} weight={"fill"} />}
                         type={"filled"}
-                        className={!collapsed && "w-full"}
+                        className={collapsed ? "" : "w-full"}
                      >
                         {!collapsed && "Budget"}
                      </NavigationMenuLink>
@@ -216,7 +216,7 @@ function SideNavigation() {
                         iconTrailing={<CaretRight size={16} weight={"bold"} />}
                         iconLeading={<HandCoins size={16} weight={"fill"} />}
                         type={"filled"}
-                        className={!collapsed && "w-full"}
+                        className={collapsed ? "" : "w-full"}
                      >
                         {!collapsed && "Account Receivable"}
                      </NavigationMenuLink>
@@ -228,7 +228,7 @@ function SideNavigation() {
                            <CurrencyDollar size={16} weight={"fill"} />
                         }
                         type={"filled"}
-                        className={!collapsed && "w-full"}
+                        className={collapsed ? "" : "w-full"}
                      >
                         {!collapsed && "Account Payable"}
                      </NavigationMenuLink>
@@ -238,7 +238,7 @@ function SideNavigation() {
                         iconTrailing={<CaretRight size={16} weight={"bold"} />}
                         iconLeading={<Bank size={16} weight={"fill"} />}
                         type={"filled"}
-                        className={!collapsed && "w-full"}
+                        className={collapsed ? "" : "w-full"}
                      >
                         {!collapsed && "Bank"}
                      </NavigationMenuLink>
@@ -248,7 +248,7 @@ function SideNavigation() {
                         iconTrailing={<CaretRight size={16} weight={"bold"} />}
                         iconLeading={<Files size={16} weight={"fill"} />}
                         type={"filled"}
-                        className={!collapsed && "w-full"}
+                        className={collapsed ? "" : "w-full"}
                      >
                         {!collapsed && "General Ledger"}
                      </NavigationMenuLink>
@@ -257,7 +257,7 @@ function SideNavigation() {
                      <NavigationMenuLink
                         iconLeading={<Coin size={16} weight={"fill"} />}
                         type={"filled"}
-                        className={!collapsed && "w-full"}
+                        className={collapsed ? "" : "w-full"}
                      >
                         {!collapsed && "Trial Balance"}
                      </NavigationMenuLink>
@@ -266,7 +266,7 @@ function SideNavigation() {
                      <NavigationMenuLink
                         iconLeading={<PencilSimple size={16} weight={"fill"} />}
                         type={"filled"}
-                        className={!collapsed && "w-full"}
+                        className={collapsed ? "" : "w-full"}
                      >
                         {!collapsed && "Reporting"}
                      </NavigationMenuLink>
@@ -275,7 +275,7 @@ function SideNavigation() {
                      <NavigationMenuLink
                         iconLeading={<BookOpenText size={16} weight={"fill"} />}
                         type={"filled"}
-                        className={!collapsed && "w-full"}
+                        className={collapsed ? "" : "w-full"}
                      >
                         {!collapsed && "Knowledge Base"}
                      </NavigationMenuLink>
@@ -284,7 +284,7 @@ function SideNavigation() {
                      <NavigationMenuLink
                         iconLeading={<Certificate size={16} weight={"fill"} />}
                         type={"filled"}
-                        className={!collapsed && "w-full"}
+                        className={collapsed ? "" : "w-full"}
                      >
                         {!collapsed && "Training Certification"}
                      </NavigationMenuLink>
@@ -293,7 +293,7 @@ function SideNavigation() {
                      <NavigationMenuLink
                         iconLeading={<Gear size={16} weight={"fill"} />}
                         type={"filled"}
-                        className={!collapsed && "w-full"}
+                        className={collapsed ? "" : "w-full"}
                      >
                         {!collapsed && "Settings"}
                      </NavigationMenuLink>
