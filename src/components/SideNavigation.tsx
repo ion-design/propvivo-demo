@@ -45,7 +45,7 @@ function SideNavigation() {
       setExtraNavbarOpen("closed");
    }
    const path = usePathname();
-   const [collapsed, setCollapsed] = useState();
+   const [collapsed, setCollapsed] = useState(false);
    const [extraNavbarOpen, setExtraNavbarOpen] = useState<"setup" | "closed">(
       "closed"
    );
@@ -74,7 +74,10 @@ function SideNavigation() {
                         Currency
                      </NavigationMenuLink>
                   </NavigationMenuItem>
-                  <NavigationMenuItem className={"px-3"}>
+                  <NavigationMenuItem
+                     className={"px-3"}
+                     onClick={() => setCollapsed(!collapsed)}
+                  >
                      <Link href={"/fiscal-calendar"} legacyBehavior passHref>
                         <NavigationMenuLink
                            selected={path === "/fiscal-calendar"}
@@ -113,7 +116,7 @@ function SideNavigation() {
    };
    return (
       <div className="sticky top-0 flex h-full min-h-screen overflow-visible transition-all">
-         <Sidebar filled className="transition-all">
+         <Sidebar filled className="h-full min-h-screen">
             <NavigationMenu>
                <NavigationMenuList
                   className={clsx(
@@ -121,6 +124,12 @@ function SideNavigation() {
                      collapsed && "items-center"
                   )}
                >
+                  <Button
+                     iconLeading={collapsed ? <CaretRight /> : <CaretLeft />}
+                     className={clsx("top-3 right-3", !collapsed && "absolute")}
+                     emphasis="low"
+                     onClick={() => setCollapsed(!collapsed)}
+                  />
                   {!collapsed && (
                      <div className="w-full flex-col flex px-5 py-3">
                         <img
@@ -130,7 +139,7 @@ function SideNavigation() {
                         />
                      </div>
                   )}
-                  <div className="w-full flex items-center px-3 py-3">
+                  <div className="w-full flex justify-center px-3 py-3">
                      <Popover>
                         <PopoverTrigger asChild>
                            <Button
@@ -156,13 +165,16 @@ function SideNavigation() {
                      </Popover>
                   </div>
                   <NavigationMenuItem className={"px-3"}>
-                     <NavigationMenuLink
-                        iconLeading={<House size={16} weight={"fill"} />}
-                        type={"filled"}
-                        className={!collapsed && "w-full"}
-                     >
-                        {!collapsed && "Dashboard"}
-                     </NavigationMenuLink>
+                     <Link href={"/"} legacyBehavior>
+                        <NavigationMenuLink
+                           iconLeading={<House size={16} weight={"fill"} />}
+                           type={"filled"}
+                           className={!collapsed && "w-full"}
+                           seleceted={path === "/"}
+                        >
+                           {!collapsed && "Dashboard"}
+                        </NavigationMenuLink>
+                     </Link>
                   </NavigationMenuItem>
                   <NavigationMenuItem className={"px-3"}>
                      <NavigationMenuLink

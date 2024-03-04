@@ -8,7 +8,7 @@ type BreadcrumbsProps = {
 };
 
 function Breadcrumbs({
-   route = "Legal Entity",
+   route,
    root = "Home",
    className = "",
 }: BreadcrumbsProps) {
@@ -17,8 +17,14 @@ function Breadcrumbs({
          <div className="text-base font-semibold text-soft-foreground">
             {root}
          </div>
-         <div className="text-base font-semibold text-foreground">/</div>
-         <div className="text-base font-semibold text-foreground">{route}</div>
+         {route && (
+            <>
+               <div className="text-base font-semibold text-foreground">/</div>
+               <div className="text-base font-semibold text-foreground">
+                  {route}
+               </div>
+            </>
+         )}
       </div>
    );
 }
