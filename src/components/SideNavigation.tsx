@@ -169,7 +169,7 @@ function SideNavigation() {
                         <NavigationMenuLink
                            iconLeading={<House size={16} weight={"fill"} />}
                            type={"filled"}
-                           className={!collapsed && "w-full"}
+                           className={collapsed ? "" : "w-full"}
                            seleceted={path === "/"}
                         >
                            {!collapsed && "Dashboard"}
