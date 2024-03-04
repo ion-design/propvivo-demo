@@ -76,7 +76,7 @@ function SideNavigation() {
                   </NavigationMenuItem>
                   <NavigationMenuItem
                      className={"px-3"}
-                     onClick={() => setCollapsed(!collapsed)}
+                     onClick={() => setCollapsed(false)}
                   >
                      <Link href={"/fiscal-calendar"} legacyBehavior passHref>
                         <NavigationMenuLink
