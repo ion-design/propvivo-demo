@@ -197,15 +197,17 @@ function SideNavigation() {
                      </Link>
                   </NavigationMenuItem>
                   <NavigationMenuItem className={"px-3"}>
-                     <NavigationMenuLink
-                        iconLeading={
-                           <CalendarBlank size={16} weight={"fill"} />
-                        }
-                        type={"filled"}
-                        className="w-full bg-[#313441]"
-                     >
-                        Fiscal Year
-                     </NavigationMenuLink>
+                     <Link href={"/fiscal-year"} legacyBehavior passHref>
+                        <NavigationMenuLink
+                           iconLeading={
+                              <CalendarBlank size={16} weight={"fill"} />
+                           }
+                           type={"filled"}
+                           className="w-full bg-[#313441]"
+                        >
+                           Fiscal Year
+                        </NavigationMenuLink>
+                     </Link>
                   </NavigationMenuItem>
                   <NavigationMenuItem className={"px-3"}>
                      <NavigationMenuLink

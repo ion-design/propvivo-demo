@@ -30,10 +30,7 @@ function Breadcrumbs({ routes, className = "" }: BreadcrumbsProps) {
                <div
                   className={twMerge(
                      clsx(
-                        "text-base font-semibold text-soft-foreground first:hidden last:hidden",
-                        {
-                           "text-foreground": index === routes.length - 2,
-                        }
+                        "text-base font-semibold text-soft-foreground first:hidden last:hidden"
                      )
                   )}
                >

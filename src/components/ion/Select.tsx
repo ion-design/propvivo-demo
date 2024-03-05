@@ -42,7 +42,7 @@ const SelectTrigger = React.forwardRef<
     </span>
 
     <SelectPrimitive.Icon asChild>
-      <CaretDown className="h-4 w-4 transition-transform duration-200 ease-in group-data-[state=open]:rotate-180" />
+      <CaretDown className="h-4 w-4 transition-transform duration-200 ease-in group-data-[state=open]:rotate-180 ml-3" />
     </SelectPrimitive.Icon>
   </SelectPrimitive.Trigger>
 ));
