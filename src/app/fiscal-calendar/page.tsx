@@ -171,7 +171,19 @@ function FiscalCalendar() {
       <div className="bg-background h-full flex-col flex justify-between flex-shrink">
          <div className="flex-col flex gap-5 px-10 py-5 flex-grow h-full">
             <div className="w-full flex justify-between items-center">
-               <Breadcrumbs route="Setup" root="Home" />
+               <Breadcrumbs
+                  routes={[
+                     {
+                        name: "Home",
+                        path: "/",
+                     },
+
+                     {
+                        name: "Fiscal Calendar",
+                        path: "/legal-entity/fiscal-calendar",
+                     },
+                  ]}
+               />
                <Button
                   iconLeading={<Plus size={16} weight={"bold"} />}
                   emphasis="high"

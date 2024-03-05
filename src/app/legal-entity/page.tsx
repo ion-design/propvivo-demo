@@ -7,7 +7,18 @@ import EntityItem from "@/components/ion/EntityItem";
 function LegalEntity() {
    return (
       <div className="bg-background w-full flex-col flex gap-10 p-10 h-fit">
-         <Breadcrumbs root="Home" route="Legal Entity" />
+         <Breadcrumbs
+            routes={[
+               {
+                  name: "Home",
+                  path: "/home",
+               },
+               {
+                  name: "Legal Entity",
+                  path: "/legal-entity",
+               },
+            ]}
+         />
          <div className="grid grid-cols-3 gap-10">
             <div className="bg-background flex-1 flex-col flex gap-3">
                <div className="text-base font-semibold text-black px-3 py-1">

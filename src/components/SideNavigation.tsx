@@ -57,12 +57,14 @@ function SideNavigation() {
          <>
             <NavigationMenu>
                <NavigationMenuList className="w-full h-full flex-col flex gap-3 py-5">
-                  <Button
-                     iconLeading={<X size={16} weight={"bold"} />}
-                     emphasis="low"
-                     color="secondary"
-                     onClick={() => setExtraNavbarOpen("closed")}
-                  />
+                  <div className="w-full flex justify-end items-start px-5 pb-5 text-primary-foreground">
+                     <Button
+                        iconLeading={<X size={16} weight={"bold"} />}
+                        emphasis="low"
+                        color="secondary"
+                        onClick={() => setExtraNavbarOpen("closed")}
+                     />
+                  </div>
 
                   <NavigationMenuItem className={"px-3"}>
                      <NavigationMenuLink
@@ -99,12 +101,14 @@ function SideNavigation() {
       accountReceivable: (
          <NavigationMenu>
             <NavigationMenuList className="w-full h-full flex-col flex gap-3 py-5">
-               <Button
-                  iconLeading={<X size={16} weight={"bold"} />}
-                  emphasis="low"
-                  color="secondary"
-                  onClick={() => setExtraNavbarOpen("closed")}
-               />
+               <div className="w-full flex justify-end items-start px-5 pb-5 text-primary-foreground">
+                  <Button
+                     iconLeading={<X size={16} weight={"bold"} />}
+                     emphasis="low"
+                     color="secondary"
+                     onClick={() => setExtraNavbarOpen("closed")}
+                  />
+               </div>
 
                <NavigationMenuItem className={"px-3"}>
                   <NavigationMenuLink
