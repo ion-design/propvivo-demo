@@ -24,6 +24,9 @@ import {
    CalendarBlank,
    UsersThree,
    CaretLeft,
+   Coins,
+   User,
+   SquaresFour,
 } from "@phosphor-icons/react/dist/ssr";
 import Button from "@/components/ion/Button";
 import {
@@ -46,11 +49,111 @@ function SideNavigation() {
    }
    const path = usePathname();
    const [collapsed, setCollapsed] = useState(false);
-   const [extraNavbarOpen, setExtraNavbarOpen] = useState<"setup" | "closed">(
-      "closed"
-   );
+   const [extraNavbarOpen, setExtraNavbarOpen] =
+      useState<keyof typeof extraNavbars>("closed");
    const extraNavbars = {
       closed: <></>,
+      accountPayable: (
+         <>
+            <NavigationMenu>
+               <NavigationMenuList className="w-full h-full flex-col flex gap-3 py-5">
+                  <Button
+                     iconLeading={<X size={16} weight={"bold"} />}
+                     emphasis="low"
+                     color="secondary"
+                     onClick={() => setExtraNavbarOpen("closed")}
+                  />
+
+                  <NavigationMenuItem className={"px-3"}>
+                     <NavigationMenuLink
+                        iconLeading={<User size={16} weight={"fill"} />}
+                        type={"filled"}
+                        className="w-full"
+                     >
+                        Vendor Setup
+                     </NavigationMenuLink>
+                  </NavigationMenuItem>
+                  <NavigationMenuItem className={"px-3"}>
+                     {" "}
+                     <NavigationMenuLink
+                        iconLeading={<Receipt size={16} weight={"fill"} />}
+                        type={"filled"}
+                        className="w-full"
+                     >
+                        Invoice &amp; Processing
+                     </NavigationMenuLink>
+                  </NavigationMenuItem>
+                  <NavigationMenuItem className={"px-3"}>
+                     <NavigationMenuLink
+                        iconLeading={<Money size={16} weight={"fill"} />}
+                        type={"filled"}
+                        className="w-full"
+                     >
+                        Payments
+                     </NavigationMenuLink>
+                  </NavigationMenuItem>
+               </NavigationMenuList>
+            </NavigationMenu>
+         </>
+      ),
+      accountReceivable: (
+         <NavigationMenu>
+            <NavigationMenuList className="w-full h-full flex-col flex gap-3 py-5">
+               <Button
+                  iconLeading={<X size={16} weight={"bold"} />}
+                  emphasis="low"
+                  color="secondary"
+                  onClick={() => setExtraNavbarOpen("closed")}
+               />
+
+               <NavigationMenuItem className={"px-3"}>
+                  <NavigationMenuLink
+                     iconLeading={<User size={16} weight={"fill"} />}
+                     type={"filled"}
+                     className="w-full"
+                  >
+                     Customer
+                  </NavigationMenuLink>
+               </NavigationMenuItem>
+               <NavigationMenuItem className={"px-3"}>
+                  <NavigationMenuLink
+                     iconLeading={<Receipt size={16} weight={"fill"} />}
+                     type={"filled"}
+                     className="w-full"
+                  >
+                     Invoice
+                  </NavigationMenuLink>
+               </NavigationMenuItem>
+               <NavigationMenuItem className={"px-3"}>
+                  <NavigationMenuLink
+                     iconLeading={<Money size={16} weight={"fill"} />}
+                     type={"filled"}
+                     className="w-full"
+                  >
+                     Payment
+                  </NavigationMenuLink>
+               </NavigationMenuItem>
+               <NavigationMenuItem className={"px-3"}>
+                  <NavigationMenuLink
+                     iconLeading={<Coins size={16} weight={"fill"} />}
+                     type={"filled"}
+                     className="w-full"
+                  >
+                     Charges
+                  </NavigationMenuLink>
+               </NavigationMenuItem>
+               <NavigationMenuItem className={"px-3"}>
+                  <NavigationMenuLink
+                     iconLeading={<SquaresFour size={16} weight={"fill"} />}
+                     type={"filled"}
+                     className="w-full"
+                  >
+                     Collection
+                  </NavigationMenuLink>
+               </NavigationMenuItem>
+            </NavigationMenuList>
+         </NavigationMenu>
+      ),
       setup: (
          <>
             <NavigationMenu>
@@ -218,6 +321,7 @@ function SideNavigation() {
                   </NavigationMenuItem>
                   <NavigationMenuItem className={"px-3"}>
                      <NavigationMenuLink
+                        onClick={() => setExtraNavbarOpen("accountReceivable")}
                         iconTrailing={<CaretRight size={16} weight={"bold"} />}
                         iconLeading={<HandCoins size={16} weight={"fill"} />}
                         type={"filled"}
@@ -228,6 +332,7 @@ function SideNavigation() {
                   </NavigationMenuItem>
                   <NavigationMenuItem className={"px-3"}>
                      <NavigationMenuLink
+                        onClick={() => setExtraNavbarOpen("accountPayable")}
                         iconTrailing={<CaretRight size={16} weight={"bold"} />}
                         iconLeading={
                            <CurrencyDollar size={16} weight={"fill"} />
