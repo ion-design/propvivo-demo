@@ -90,7 +90,7 @@ function AddCurrencyDrawer(props: DrawerProps) {
       <Drawer
         open={open}
         onOpenChange={setOpen}
-        title="Add currency"
+        title="Edit Chart Of Accounts Header/Sub-Header"
         footer={
           <div className="w-full flex-1 flex justify-end items-end gap-3">
             <Button
