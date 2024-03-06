@@ -3,33 +3,30 @@
 import { CaretUpDown } from "@phosphor-icons/react/dist/ssr";
 import Badge from "@/components/ion/Badge";
 import SideNavigation from "@/components/SideNavigation";
-import PropVivoTopBar from "@/components/ion/PropVivoTopBar";
 import MappedLegalEntitiesTable from "@/components/ion/MappedLegalEntitiesTable";
-import IonBreadcrumbs from "@/components/ion/IonBreadcrumbs";
 import Breadcrumbs from "@/components/ion/Breadcrumbs";
 
 function MappedLegalEntitiesPage() {
-   return (
-      <div className="bg-background h-full flex-1 flex-col flex">
-         <div className="w-full flex-1 flex-col flex gap-5 pt-5">
-            <div className="flex items-start px-10">
-               <Breadcrumbs
-                  routes={[
-                     { name: "Home", path: "/" },
-                     { name: "Setup", path: "/" },
-                     { name: "Fiscal Calendar", path: "/fiscal-calendar" },
-                     {
-                        name: "Mapped Legal Entities",
-                        path: "/fiscal-calendar/mapped-legal-entities",
-                     },
-                  ]}
-                  className="w-full"
-               />
-               <IonBreadcrumbs count="4" divider="default" />
-            </div>
-            <MappedLegalEntitiesTable className="w-full h-full" />
-         </div>
+  return (
+    <div className="bg-background h-full flex-1 flex-col flex">
+      <div className="w-full flex-1 flex-col flex gap-5 pt-5">
+        <div className="flex items-start px-10">
+          <Breadcrumbs
+            routes={[
+              { name: "Home", path: "/" },
+              { name: "Setup", path: "/" },
+              { name: "Fiscal Calendar", path: "/fiscal-calendar" },
+              {
+                name: "Mapped Legal Entities",
+                path: "/fiscal-calendar/mapped-legal-entities",
+              },
+            ]}
+            className="w-full"
+          />
+        </div>
+        <MappedLegalEntitiesTable className="w-full h-full" />
       </div>
-   );
+    </div>
+  );
 }
 export default MappedLegalEntitiesPage;
