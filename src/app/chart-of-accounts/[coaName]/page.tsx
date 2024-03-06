@@ -209,7 +209,7 @@ function GlobalCOAPage() {
               },
               {
                 name: "Global COA US-NW Property",
-                path: "/global-coa",
+                path: "/chart-of-accounts/global-coa",
               },
             ]}
           />

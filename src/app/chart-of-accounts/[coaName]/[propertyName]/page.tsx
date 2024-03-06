@@ -250,7 +250,7 @@ function PropertyPage() {
             },
             {
               name: "Global COA US-NW Property",
-              path: "/global-coa",
+              path: "/chart-of-accounts/global-coa",
             },
             {
               name: "Travis Scott Association COA US-NW-Property",
