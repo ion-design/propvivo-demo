@@ -292,6 +292,7 @@ function PropertyPage() {
           <div className="text-sm text-sub-foreground">1-10 of 50</div>
           <Pagination />
           <Select
+            className="w-fit"
             placeholder="10"
             options={[
               {
