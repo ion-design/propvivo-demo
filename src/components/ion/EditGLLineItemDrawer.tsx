@@ -23,35 +23,42 @@ function EditGLLineItemDrawer(props: DrawerProps) {
     alert("addLineItemClickHandler fired");
   }
 
-  const { values, errors, touched, handleChange, handleBlur, handleSubmit } =
-    useFormik({
-      initialValues: {
-        glName: "",
-        drcrAllowed: "",
-        accountingClassification: "",
-        projectionClassification: "",
-      },
-      onSubmit: (values) => {
-        setConfirmationModalOpen(true);
-        console.log(values);
-      },
-      validate: (values) => {
-        const errors: any = {};
-        if (!values.glName) {
-          errors.glName = "Required";
-        }
-        if (!values.drcrAllowed) {
-          errors.drcrAllowed = "Required";
-        }
-        if (!values.accountingClassification) {
-          errors.accountingClassification = "Required";
-        }
-        if (!values.projectionClassification) {
-          errors.projectionClassification = "Required";
-        }
-        return errors;
-      },
-    });
+  const {
+    values,
+    errors,
+    touched,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+    resetForm,
+  } = useFormik({
+    initialValues: {
+      glName: "",
+      drcrAllowed: "",
+      accountingClassification: "",
+      projectionClassification: "",
+    },
+    onSubmit: (values) => {
+      setConfirmationModalOpen(true);
+      console.log(values);
+    },
+    validate: (values) => {
+      const errors: any = {};
+      if (!values.glName) {
+        errors.glName = "Required";
+      }
+      if (!values.drcrAllowed) {
+        errors.drcrAllowed = "Required";
+      }
+      if (!values.accountingClassification) {
+        errors.accountingClassification = "Required";
+      }
+      if (!values.projectionClassification) {
+        errors.projectionClassification = "Required";
+      }
+      return errors;
+    },
+  });
   return (
     <>
       <UpdateGlLineItemConfirmationModal
@@ -61,6 +68,7 @@ function EditGLLineItemDrawer(props: DrawerProps) {
           setSuccessModalOpen(true);
           setOpen(false);
           setConfirmationModalOpen(false);
+          resetForm();
         }}
         handleCancel={() => setConfirmationModalOpen(false)}
       />

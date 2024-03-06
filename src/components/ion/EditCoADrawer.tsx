@@ -22,55 +22,62 @@ function AddCurrencyDrawer(props: DrawerProps) {
   const [successModalOpen, setSuccessModalOpen] = useState(false);
   const [confirmationModalOpen, setConfirmationModalOpen] = useState(false);
 
-  const { values, errors, touched, handleChange, handleBlur, handleSubmit } =
-    useFormik({
-      initialValues: {
-        mainAccount: "",
-        isParent: "Yes",
-        glCode: "",
-        header: "",
-        subHeaderStartRange: "",
-        subHeaderEndRange: "",
-        subHeader: "",
-        glLineItemStartRange: "",
-        glLineItemEndRange: "",
-      },
-      onSubmit: () => {
-        setConfirmationModalOpen(true);
-      },
-      validate: (values) => {
-        const errors: any = {};
-        if (!values.mainAccount) {
-          errors.mainAccount = "Required";
+  const {
+    values,
+    errors,
+    touched,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+    resetForm,
+  } = useFormik({
+    initialValues: {
+      mainAccount: "",
+      isParent: "Yes",
+      glCode: "",
+      header: "",
+      subHeaderStartRange: "",
+      subHeaderEndRange: "",
+      subHeader: "",
+      glLineItemStartRange: "",
+      glLineItemEndRange: "",
+    },
+    onSubmit: () => {
+      setConfirmationModalOpen(true);
+    },
+    validate: (values) => {
+      const errors: any = {};
+      if (!values.mainAccount) {
+        errors.mainAccount = "Required";
+      }
+      if (!values.glCode) {
+        errors.glCode = "Required";
+      }
+      if (!values.header) {
+        errors.header = "Required";
+      }
+      if (values.isParent) {
+        if (!values.subHeaderStartRange) {
+          errors.subHeaderStartRange = "Required";
         }
-        if (!values.glCode) {
-          errors.glCode = "Required";
-        }
-        if (!values.header) {
-          errors.header = "Required";
-        }
-        if (values.isParent) {
-          if (!values.subHeaderStartRange) {
-            errors.subHeaderStartRange = "Required";
-          }
 
-          if (!values.subHeaderEndRange) {
-            errors.subHeaderEndRange = "Required";
-          }
-        } else {
-          if (!values.subHeader) {
-            errors.subHeader = "Required";
-          }
-          if (!values.glLineItemStartRange) {
-            errors.glLineItemStartRange = "Required";
-          }
-          if (!values.glLineItemEndRange) {
-            errors.glLineItemEndRange = "Required";
-          }
+        if (!values.subHeaderEndRange) {
+          errors.subHeaderEndRange = "Required";
         }
-        return errors;
-      },
-    });
+      } else {
+        if (!values.subHeader) {
+          errors.subHeader = "Required";
+        }
+        if (!values.glLineItemStartRange) {
+          errors.glLineItemStartRange = "Required";
+        }
+        if (!values.glLineItemEndRange) {
+          errors.glLineItemEndRange = "Required";
+        }
+      }
+      return errors;
+    },
+  });
   return (
     <>
       <EditCoAConfirmationModal
@@ -80,6 +87,7 @@ function AddCurrencyDrawer(props: DrawerProps) {
           setSuccessModalOpen(true);
           setOpen(false);
           setConfirmationModalOpen(false);
+          resetForm();
         }}
         handleCancel={() => setConfirmationModalOpen(false)}
       />

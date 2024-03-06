@@ -12,36 +12,44 @@ import Input from "./Input";
 function AddFiscalCalendarDrawer(props: DrawerProps) {
   const [successModalOpen, setSuccessModalOpen] = useState(false);
   const [open, setOpen] = useState(false);
-  const { values, errors, touched, handleChange, handleBlur, handleSubmit } =
-    useFormik({
-      initialValues: {
-        startMonth: "",
-        endMonth: "",
-        periodFrequency: "",
-        calendarName: "",
-      },
-      onSubmit: (values) => {
-        setOpen(false);
-        setSuccessModalOpen(true);
-        console.log(values);
-      },
-      validate: (values) => {
-        const errors: any = {};
-        if (!values.startMonth) {
-          errors.startMonth = "Required";
-        }
-        if (!values.endMonth) {
-          errors.endMonth = "Required";
-        }
-        if (!values.periodFrequency) {
-          errors.periodFrequency = "Required";
-        }
-        if (!values.calendarName) {
-          errors.calendarName = "Required";
-        }
-        return errors;
-      },
-    });
+  const {
+    values,
+    errors,
+    touched,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+    resetForm,
+  } = useFormik({
+    initialValues: {
+      startMonth: "",
+      endMonth: "",
+      periodFrequency: "",
+      calendarName: "",
+    },
+    onSubmit: (values) => {
+      setOpen(false);
+      setSuccessModalOpen(true);
+      console.log(values);
+      resetForm();
+    },
+    validate: (values) => {
+      const errors: any = {};
+      if (!values.startMonth) {
+        errors.startMonth = "Required";
+      }
+      if (!values.endMonth) {
+        errors.endMonth = "Required";
+      }
+      if (!values.periodFrequency) {
+        errors.periodFrequency = "Required";
+      }
+      if (!values.calendarName) {
+        errors.calendarName = "Required";
+      }
+      return errors;
+    },
+  });
   const months = [
     {
       label: "Jan",

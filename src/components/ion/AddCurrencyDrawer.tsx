@@ -12,39 +12,47 @@ import AddCurrencyModal from "./AddCurrencyModal";
 
 function AddCurrencyDrawer(props: DrawerProps) {
   const [open, setOpen] = useState(false);
-  const { values, errors, touched, handleChange, handleBlur, handleSubmit } =
-    useFormik({
-      initialValues: {
-        country: "",
-        currencyCode: "",
-        currencyName: "",
-        generalRoundingRule: "",
-        currencySymbol: null,
-      },
-      onSubmit: () => {
-        setOpen(false);
-        setSuccessModalOpen(true);
-      },
-      validate: (values) => {
-        const errors: any = {};
-        if (!values.country) {
-          errors.country = "Required";
-        }
-        if (!values.currencyCode) {
-          errors.currencyCode = "Required";
-        }
-        if (!values.currencyName) {
-          errors.currencyName = "Required";
-        }
-        if (!values.generalRoundingRule) {
-          errors.generalRoundingRule = "Required";
-        }
-        if (!values.currencySymbol) {
-          errors.currencySymbol = "Required";
-        }
-        return errors;
-      },
-    });
+  const {
+    values,
+    errors,
+    touched,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+    resetForm,
+  } = useFormik({
+    initialValues: {
+      country: "",
+      currencyCode: "",
+      currencyName: "",
+      generalRoundingRule: "",
+      currencySymbol: null,
+    },
+    onSubmit: () => {
+      setOpen(false);
+      setSuccessModalOpen(true);
+      resetForm();
+    },
+    validate: (values) => {
+      const errors: any = {};
+      if (!values.country) {
+        errors.country = "Required";
+      }
+      if (!values.currencyCode) {
+        errors.currencyCode = "Required";
+      }
+      if (!values.currencyName) {
+        errors.currencyName = "Required";
+      }
+      if (!values.generalRoundingRule) {
+        errors.generalRoundingRule = "Required";
+      }
+      if (!values.currencySymbol) {
+        errors.currencySymbol = "Required";
+      }
+      return errors;
+    },
+  });
   const [successModalOpen, setSuccessModalOpen] = useState(false);
   return (
     <>

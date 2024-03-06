@@ -11,28 +11,36 @@ import { useState } from "react";
 function AddFiscalYearDrawer(props: DrawerProps) {
   const [open, setOpen] = useState(false);
   const [successModalOpen, setSuccessModalOpen] = useState(false);
-  const { values, errors, touched, handleChange, handleBlur, handleSubmit } =
-    useFormik({
-      initialValues: {
-        fiscalCalendar: "",
-        fiscalYear: "",
-      },
-      onSubmit: (values) => {
-        setOpen(false);
-        setSuccessModalOpen(true);
-        console.log(values);
-      },
-      validate: (values) => {
-        const errors: any = {};
-        if (!values.fiscalCalendar) {
-          errors.fiscalCalendar = "Required";
-        }
-        if (!values.fiscalYear) {
-          errors.fiscalYear = "Required";
-        }
-        return errors;
-      },
-    });
+  const {
+    values,
+    errors,
+    touched,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+    resetForm,
+  } = useFormik({
+    initialValues: {
+      fiscalCalendar: "",
+      fiscalYear: "",
+    },
+    onSubmit: (values) => {
+      setOpen(false);
+      setSuccessModalOpen(true);
+      console.log(values);
+      resetForm();
+    },
+    validate: (values) => {
+      const errors: any = {};
+      if (!values.fiscalCalendar) {
+        errors.fiscalCalendar = "Required";
+      }
+      if (!values.fiscalYear) {
+        errors.fiscalYear = "Required";
+      }
+      return errors;
+    },
+  });
   return (
     <>
       <AddFiscalYearModal
