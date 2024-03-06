@@ -296,23 +296,20 @@ function PropertyPage() {
             placeholder="10"
             options={[
               {
-                description: "first",
-                iconLeading: <Globe size={16} weight={"regular"} />,
-                label: "Item 1",
-                value: "Item 1",
+                label: "10",
+                value: "10",
               },
               {
-                description: "second",
-                iconLeading: <ArrowRight size={16} weight={"bold"} />,
-                label: "Item 2",
-                value: "Item 2",
+                label: "20",
+                value: "20",
               },
               {
-                description: "third",
-                iconLeading: <Bluetooth size={16} weight={"bold"} />,
-                label: "Item 3",
-                suffix: "@third",
-                value: "Item 3",
+                label: "50",
+                value: "50",
+              },
+              {
+                label: "100",
+                value: "100",
               },
             ]}
           />
