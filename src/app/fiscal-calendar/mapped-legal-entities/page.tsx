@@ -1,11 +1,6 @@
 // Generated with Ion on 3/5/2024, 12:05:16 PM
 // Figma Link: https://www.figma.com/file/p6G5Vjga6BJjcBx86TKgNP?node-id=5300:9318
-import { CaretUpDown } from "@phosphor-icons/react/dist/ssr";
-import Badge from "@/components/ion/Badge";
-import SideNavigation from "@/components/SideNavigation";
-import PropVivoTopBar from "@/components/ion/PropVivoTopBar";
 import MappedLegalEntitiesTable from "@/components/ion/MappedLegalEntitiesTable";
-import IonBreadcrumbs from "@/components/ion/IonBreadcrumbs";
 import Breadcrumbs from "@/components/ion/Breadcrumbs";
 
 function MappedLegalEntitiesPage() {
@@ -25,7 +20,6 @@ function MappedLegalEntitiesPage() {
                   ]}
                   className="w-full"
                />
-               <IonBreadcrumbs count="4" divider="default" />
             </div>
             <MappedLegalEntitiesTable className="w-full h-full" />
          </div>
