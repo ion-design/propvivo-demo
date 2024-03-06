@@ -162,7 +162,7 @@ function MappedLegalEntitiesTable({
                   serviceEndDate: "",
                   legalEntityStatus: "",
                })}
-               className="w-full"
+               className="w-full overflow-auto"
             />
          </div>
          <div className="bg-weak w-full flex justify-between items-center px-10 py-2">
