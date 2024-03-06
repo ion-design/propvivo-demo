@@ -9,6 +9,10 @@ type FileUploadProps = {
   hint?: string;
   iconLeading?: React.ReactNode;
   showLabel?: boolean;
+  showHintIcon?: boolean;
+  error?: boolean | string;
+  value?: File | null;
+  onChange?: (file: File | null) => void;
   className?: string;
 };
 
@@ -17,20 +21,48 @@ function FileUpload({
   placeholder,
   hint,
   iconLeading,
-  showLabel,
+  value,
+  onChange,
+  error,
   className,
 }: FileUploadProps) {
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0] || null;
+    onChange?.(file);
+  };
+
   return (
     <div className={clsx("w-[356px] flex-col flex gap-1 h-fit", className)}>
       {label && <Label required={true}>{label}</Label>}
-      <div className="w-full flex justify-between items-center gap-2 py-2 pr-2 pl-3 rounded-radius border">
+      <div
+        className={clsx(
+          "w-full flex justify-between items-center gap-2 py-2 pr-2 pl-3 rounded-radius border",
+          { "border-state-error": error }
+        )}
+      >
         <div className="flex items-center gap-3">
           {iconLeading}
-          <div className="text-sm">{placeholder}</div>
+          {/* Display the file name if provided, otherwise show the placeholder */}
+          <div className="text-sm">
+            {value?.name || (
+              <span className="text-soft-foreground">Select File</span>
+            )}
+          </div>
         </div>
-        <div className="text-xs font-semibold text-primary">Browse</div>
+        <label className="text-xs font-semibold text-primary cursor-pointer">
+          Browse
+          <input
+            type="file"
+            onChange={handleFileChange}
+            style={{ display: "none" }}
+          />
+        </label>
       </div>
-      {hint && <Hint showIcon={true}>{hint}</Hint>}
+      {hint && (
+        <Hint error={error} className="mt-1">
+          {hint}
+        </Hint>
+      )}
     </div>
   );
 }

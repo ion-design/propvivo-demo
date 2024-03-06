@@ -19,7 +19,7 @@ function AddCurrencyDrawer(props: DrawerProps) {
         currencyCode: "",
         currencyName: "",
         generalRoundingRule: "",
-        currencySymbol: "",
+        currencySymbol: null,
       },
       onSubmit: () => {
         setOpen(false);
@@ -38,6 +38,9 @@ function AddCurrencyDrawer(props: DrawerProps) {
         }
         if (!values.generalRoundingRule) {
           errors.generalRoundingRule = "Required";
+        }
+        if (!values.currencySymbol) {
+          errors.currencySymbol = "Required";
         }
         return errors;
       },
@@ -183,6 +186,16 @@ function AddCurrencyDrawer(props: DrawerProps) {
           <FileUpload
             label="Currency Symbol"
             placeholder="Select File"
+            value={values.currencySymbol}
+            onChange={(file) =>
+              handleChange({ target: { name: "currencySymbol", value: file } })
+            }
+            hint={
+              touched.currencySymbol && errors.currencySymbol
+                ? errors.currencySymbol
+                : ""
+            }
+            error={touched.currencySymbol && errors.currencySymbol}
             className="w-full"
           />
         </form>
